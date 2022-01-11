@@ -1,0 +1,7 @@
+$color: #cccccc;
+@import '@/style/func.scss';
+
+.home {
+  color: $color;
+  height: px2rem(88px);
+}
