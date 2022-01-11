@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './pages/home/home'
+import Route from './router/'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+const render = Component => {
+  ReactDOM.render(
+      <Component/>,
+    document.getElementById('root')
+  );
+}
+
+render(Route)

@@ -22,4 +22,5 @@ export default function asyncComponent(importComponent) {
       return C ? <C {...this.props}></C> : null
     }
   }
+  return AsyncComponent
 }
