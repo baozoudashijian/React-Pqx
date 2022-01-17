@@ -1,0 +1,19 @@
+@import "../../style/func";
+
+.context-con {
+  margin-top: px2rem(100px);
+  padding: px2rem(20px);
+
+  h2 {
+    font-size: px2rem(45px);
+    text-align: center;
+    margin-bottom: px2rem(10px);
+    padding-top: px2rem(10px);
+  }
+
+  p {
+    font-size: px2rem(32px);
+    text-indent: px2rem(40px);
+    margin-bottom: px2rem(20px);
+  }
+}
