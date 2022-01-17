@@ -16,7 +16,6 @@ class PublicHeader extends Component {
   }
 
   toggleNav = () => {
-    console.log(1123)
     this.setState({
       navState: !this.state.navState
     })
