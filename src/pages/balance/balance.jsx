@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PublicHeader from '@/components/header/header'
 import TouchableOpacity from '@/components/TouchableOpacity/TouchableOpacity'
+import Alert from '@/components/alert/alert'
 import API from '@/api/api'
 import './balance.scss'
 
@@ -60,10 +61,19 @@ class Balance extends Component {
     }
     this.setState({
       alertStatus: true,
-      alertTip,
-      applyNum: ''
+      alertTip
     })
 
+  }
+  /*
+  关闭弹框
+   */
+  closeAlert = () => {
+    this.setState({
+      alertStatus: false,
+      alertTip: '',
+      applyNum: ''
+    })
   }
 
   componentDidMount() {
@@ -83,6 +93,7 @@ class Balance extends Component {
           </form>
           <TouchableOpacity className='submit-btn' text="申请提现" clickCallBack={this.submitForm}></TouchableOpacity>
         </section>
+        <Alert alertStatus={this.state.alertStatus} alertTip={this.state.alertTip} closeAlert={this.closeAlert}></Alert>
       </main>
     )
   }

@@ -1,0 +1,64 @@
+@import "../../style/var";
+@import "../../style/func";
+
+.alert-con {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $cover-color;
+  z-index: 11;
+
+  .alert-context {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: px2rem(600px);
+    height: px2rem(360px);
+    background-color: #fff;
+    border-radius: px2rem(16px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+
+    .alert-content-detail {
+      font-size: px2rem(40px);
+      flex-grow: 5;
+      flex-shrink: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+    }
+
+    .confirm-btn {
+      flex-grow: 2;
+      flex-shrink: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: px2rem(40px);
+      border-top: 1px solid #eee;
+    }
+  }
+}
+.alert-enter{
+  opacity: 0;
+}
+.alert-enter.alert-enter-active{
+  transition: all 300ms;
+  opacity: 1;
+}
+
+.alert-leave{
+  opacity: 1;
+}
+.alert-leave.alert-leave-active{
+  transition: all 300ms;
+  opacity: 0;
+}
