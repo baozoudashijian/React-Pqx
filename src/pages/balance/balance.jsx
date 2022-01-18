@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PublicHeader from '@/components/header/header'
+import TouchableOpacity from '@/components/TouchableOpacity/TouchableOpacity'
 import './balance.scss'
 
 class Balance extends Component {
@@ -17,6 +18,10 @@ class Balance extends Component {
 
   }
 
+  submitForm = () => {
+
+  }
+
   render() {
     return (
       <main className="balance-container">
@@ -27,6 +32,7 @@ class Balance extends Component {
             <p>请输入体现金额（元）</p>
             <p>¥ <input type="text" value={this.state.applyNum} placeholder="0.00" onInput={this.handleInput} maxLength="5"/></p>
           </form>
+          <TouchableOpacity className='submit-btn' text="申请提现" clickCallBack={this.submitForm}></TouchableOpacity>
         </section>
       </main>
     )

@@ -1,4 +1,5 @@
 @import '../../style/func';
+@import '../../style/var';
 
 .balance-container {
   padding-top: px2rem(88px);
@@ -37,6 +38,16 @@
           width: px2rem(180px);
         }
       }
+    }
+    .submit-btn{
+      width: 90%;
+      background-color: $base-color;
+      margin: px2rem(50px) auto 0;
+      border-radius: px2rem(10px);
+      line-height: px2rem(100px);
+      font-size: px2rem(40px);
+      color: #ffffff;
+      text-align: center;
     }
   }
 }
