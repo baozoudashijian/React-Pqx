@@ -9,3 +9,17 @@ export const saveImg = path => {
   }
 }
 
+export const saveFormData = (value, datatype) => {
+  return {
+    type: home.SAVEFORMDATA,
+    value,
+    datatype
+  }
+}
+
+export const clearData = path => {
+  return {
+    type: home.CLEARDATA,
+    path,
+  }
+}

@@ -5,11 +5,18 @@ import Alert from '@/components/alert/alert'
 import PropTypes from 'prop-types';
 import './home.scss'
 import {Link} from "react-router-dom";
+import {connect} from 'react-redux';
+import { saveFormData, saveImg, clearData } from '@/store/home/action';
+import { clearSelected } from '@/store/production/action';
 
 class Home extends Component {
 
   static propTypes = {
-    formData: PropTypes.object.isRequired
+    formData: PropTypes.object.isRequired,
+    saveFormData: PropTypes.func.isRequired,
+    saveImg: PropTypes.func.isRequired,
+    clearData: PropTypes.func.isRequired,
+    clearSelected: PropTypes.func.isRequired,
   }
 
   state = {
@@ -93,4 +100,11 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default connect(state => ({
+  formData: state.formData
+}), {
+  saveFormData,
+  saveImg,
+  clearData,
+  clearSelected,
+})(Home)
