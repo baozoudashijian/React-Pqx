@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import './home.scss'
 import {Link} from "react-router-dom";
 import {connect} from 'react-redux';
-import { saveFormData, saveImg, clearData } from '@/store/home/action';
-import { clearSelected } from '@/store/production/action';
+import {saveFormData, saveImg, clearData} from '@/store/home/action';
+import {clearSelected} from '@/store/production/action';
 
 class Home extends Component {
 
@@ -30,9 +30,23 @@ class Home extends Component {
    */
   selectedProductList = [];
 
-
-  handleInput = () => {
-
+  /**
+   * 将表单数据保存至redux，保留状态
+   * @param  {string} type  数据类型 orderSum||name||phoneNo
+   * @param  {object} event 事件对象
+   */
+  handleInput = (type, event) => {
+    let value = event.target.value;
+    switch (type) {
+      case 'orderSum':
+        value = value.replace(/\D/g, '')
+        break;
+      case 'name':
+        break;
+      case 'photoNo':
+        break;
+    }
+    this.props.saveFormData(value, type)
   }
   // 上传图片
   uploadImg = () => {
@@ -45,6 +59,10 @@ class Home extends Component {
   // 关闭弹框
   closeAlert = () => {
 
+  }
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    console.log(nextProps.formData, 'formData')
   }
 
   render() {
