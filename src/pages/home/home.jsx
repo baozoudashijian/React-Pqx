@@ -8,6 +8,8 @@ import {Link} from "react-router-dom";
 import {connect} from 'react-redux';
 import {saveFormData, saveImg, clearData} from '@/store/home/action';
 import {clearSelected} from '@/store/production/action';
+import API from '@/api/api'
+import envconfig from "../../envconfig/envconfig";
 
 class Home extends Component {
 
@@ -49,8 +51,15 @@ class Home extends Component {
     this.props.saveFormData(value, type)
   }
   // 上传图片
-  uploadImg = () => {
-
+  uploadImg = async (event) => {
+    try {
+      let formdata = new FormData()
+      formdata.append('file', event.target.files[0])
+      let result = await API.uploadImg({data: formdata})
+      this.props.saveImg(envconfig.imgUrl + result.image_path)
+    } catch (e) {
+      console.error(e)
+    }
   }
   // 提交表单
   sumitForm = () => {
