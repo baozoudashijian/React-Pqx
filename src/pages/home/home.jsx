@@ -63,11 +63,29 @@ class Home extends Component {
   }
   // 提交表单
   sumitForm = () => {
-
+    const {orderSum, name, phoneNo} = this.props.formData
+    let alertTip = ''
+    if (!orderSum.toString().length) {
+      alertTip = "请填写金额"
+    } else if (!name.toString().length) {
+      alertTip = "请填写姓名"
+    } else if (!phoneNo.toString().length) {
+      alertTip = '请填写正确的手机号';
+    } else {
+      alertTip = '添加数据成功';
+      this.props.clearSelected();
+      this.props.clearData();
+    }
+    this.setState({
+      alertStatus: true,
+      alertTip
+    })
   }
   // 关闭弹框
   closeAlert = () => {
-
+    this.setState({
+      alertStatus: false
+    })
   }
 
   componentWillReceiveProps(nextProps, nextContext) {
