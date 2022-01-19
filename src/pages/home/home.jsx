@@ -89,7 +89,7 @@ class Home extends Component {
           <p className="common-title">请上传发票凭证</p>
           <div className="file-label">
             <span className="common-select-btn">上传图片</span>
-            <input type="file" onChange={this.uploadImg}/>
+            <input className="file" type="file" onChange={this.uploadImg}/>
           </div>
           <img src={this.props.formData.imgpath} className="select-img" alt=""/>
         </div>
