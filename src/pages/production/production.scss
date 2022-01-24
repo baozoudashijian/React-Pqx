@@ -1,0 +1,71 @@
+@import "../../style/func.scss";
+@import "../../style/var";
+
+.common-con-top {
+  margin-top: px2rem(88px);
+
+  .pro-list-con {
+    padding-top: px2rem(30px);
+
+    .pro-list-ul {
+      background-color: #ffffff;
+
+      .pro-item {
+        min-height: px2rem(140px);
+        padding: px2rem(30px);
+        border-bottom: 1Px solid #eeeeee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .pro-item-select {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .pro-select-status {
+            font-size: px2rem(45px);
+            color: #cccccc;
+          }
+
+          .pro-selected {
+            color: $base-color;
+          }
+
+          .pro-name {
+            font-size: px2rem(36px);
+            margin-left: px2rem(20px);
+            margin-top: px2rem(12px);
+          }
+        }
+
+        .pro-item-edit {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .icon-jian {
+            font-size: px2rem(50px);
+            color: #cccccc;
+          }
+
+          .pro-num {
+            font-size: px2rem(30px);
+            text-align: center;
+            min-width: px2rem(60px);
+          }
+
+          .icon-jia {
+            font-size: px2rem(50px);
+            color: $base-color;
+          }
+
+          .edit-active {
+            color: $base-color;
+          }
+        }
+      }
+    }
+  }
+
+}
