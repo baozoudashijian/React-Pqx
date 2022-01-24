@@ -8,7 +8,8 @@ class PublicHeader extends Component {
 
   static propTypes = {
     record: PropTypes.any,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    comfirm: PropTypes.any
   }
 
   state = {
@@ -33,6 +34,9 @@ class PublicHeader extends Component {
         <span className="header-title">{this.props.title}</span>
         {
           this.props.record && <NavLink to="/record" exact className="header-link icon-jilu"></NavLink>
+        }
+        {
+          this.props.confirm&&<NavLink to="/" exact className="header-link header-link-confim">确定</NavLink>
         }
         <ReactCSSTransitionGroup
           component={this.FirstChild}
