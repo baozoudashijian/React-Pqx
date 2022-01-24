@@ -20,6 +20,10 @@ class Production extends Component {
     }
   }
 
+  togSelect = (index) => {
+    this.props.togSelectPro(index)
+  }
+
   render() {
     return (
       <main className="common-con-top">
@@ -29,7 +33,7 @@ class Production extends Component {
             {
               this.props.proData.dataList.map((item, index) => {
                 return <li className="pro-item" key={index}>
-                  <div className="pro-item-select">
+                  <div className="pro-item-select" onClick={this.togSelect.bind(this, index)}>
                     <span
                       className={`icon-xuanze1 pro-select-status ${item.selectStatus ? 'pro-selected' : ''}`}></span>
                     <span className="pro-name">{item.product_name}</span>

@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "immutable": "^4.0.0",
     "prop-types": "^15.8.1",
     "react": "17.0.2",
     "react-addons-css-transition-group": "^15.6.2",

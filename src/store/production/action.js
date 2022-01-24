@@ -21,8 +21,11 @@ export const getProData = () => {
   }
 }
 // 选择商品
-export const togSelectPro = () => {
-
+export const togSelectPro = (index) => {
+  return {
+    type: production.TOGGLESELECT,
+    index
+  }
 }
 // 编辑商品
 export const editPro = () => {

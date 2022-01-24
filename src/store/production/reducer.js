@@ -1,4 +1,5 @@
 import * as production from './action-type';
+import Immutable from 'immutable';
 
 let defaultState = {
   /**
@@ -17,11 +18,21 @@ let defaultState = {
 }
 // 首页表单数据
 export const proData = (state = defaultState, action = {}) => {
+  let imuDataList;
+  let imuItem;
   switch (action.type) {
     case production.CLEARSELECTED:
       return {...defaultState}
     case production.GETPRODUCTION:
       return {...state, ...action}
+    case production.TOGGLESELECT:
+      // 避免引用数据类型，使用immutable进行数据转换
+      imuDataList = Immutable.List(state.dataList)
+      imuItem = Immutable.Map(state.dataList[action.index])
+      imuItem = imuItem.set('selectStatus', !imuItem.get('selectStatus'))
+      imuDataList = imuDataList.set(action.index, imuItem)
+
+      return{...state, ...{dataList: imuDataList.toJS()}}
     default:
       return state;
   }
