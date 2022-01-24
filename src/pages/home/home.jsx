@@ -99,7 +99,7 @@ class Home extends Component {
 
 
   componentWillReceiveProps(nextProps, nextContext) {
-    console.log(nextProps.formData, 'formData')
+    this.initData(nextProps)
   }
 
   componentWillMount() {

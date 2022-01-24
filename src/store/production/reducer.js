@@ -1,5 +1,7 @@
 import * as production from './action-type';
 import Immutable from 'immutable';
+import {CLEARDATA} from "../home/action-type";
+import {CLEARSELECTED} from "./action-type";
 
 let defaultState = {
   /**
@@ -42,6 +44,16 @@ export const proData = (state = defaultState, action = {}) => {
       imuDataList = imuDataList.set(action.index, imuItem)
 
       return {...state, ...{dataList: imuDataList.toJS()}}
+    case production.CLEARSELECTED:
+      imuDataList = Immutable.fromJS(state.dataList);
+      for (let i = 0; i < state.dataList.length; i++) {
+        imuDataList = imuDataList.update(i, item => {
+          item = item.set('selectStatus', false);
+          item = item.set('selectNum', 0);
+          return item
+        })
+      }
+      return {...state, ...{dataList: imuDataList.toJS()}};
     default:
       return state;
   }
