@@ -30,7 +30,7 @@ class Home extends Component {
    * 已选择的商品数据
    * @type {Array}
    */
-  selectedProductList = [];
+  selectedProList = [];
 
   /**
    * 将表单数据保存至redux，保留状态
@@ -87,9 +87,23 @@ class Home extends Component {
       alertStatus: false
     })
   }
+  // 初始化数据
+  initData = props => {
+    this.selectedProList = []
+    props.proData.dataList.forEach(item => {
+      if (item.selectStatus && item.selectNum) {
+        this.selectedProList.push(item)
+      }
+    })
+  }
+
 
   componentWillReceiveProps(nextProps, nextContext) {
     console.log(nextProps.formData, 'formData')
+  }
+
+  componentWillMount() {
+    this.initData(this.props)
   }
 
   render() {
@@ -119,9 +133,9 @@ class Home extends Component {
           <p className="common-title">请选择销售的产品</p>
           <Link to="/production" className="common-select-btn">
             {
-              this.selectedProductList.length ? <ul className="selected-pro-list">
+              this.selectedProList.length ? <ul className="selected-pro-list">
                 {
-                  this.selectedProductList.map((item, index) => {
+                  this.selectedProList.map((item, index) => {
                     return <li key={index}
                                className="selected-pro-item ellipsis">{item.product_name}x{item.selectNum}</li>
                   })
@@ -146,7 +160,8 @@ class Home extends Component {
 }
 
 export default connect(state => ({
-  formData: state.formData
+  formData: state.formData,
+  proData: state.proData
 }), {
   saveFormData,
   saveImg,
