@@ -32,7 +32,16 @@ export const proData = (state = defaultState, action = {}) => {
       imuItem = imuItem.set('selectStatus', !imuItem.get('selectStatus'))
       imuDataList = imuDataList.set(action.index, imuItem)
 
-      return{...state, ...{dataList: imuDataList.toJS()}}
+      return {...state, ...{dataList: imuDataList.toJS()}}
+
+    case production.EDITPRODUCTION:
+      // 避免引用数据类型，使用immutable进行数据转换
+      imuDataList = Immutable.List(state.dataList)
+      imuItem = Immutable.Map(state.dataList[action.index])
+      imuItem = imuItem.set('selectNum', action.num)
+      imuDataList = imuDataList.set(action.index, imuItem)
+
+      return {...state, ...{dataList: imuDataList.toJS()}}
     default:
       return state;
   }

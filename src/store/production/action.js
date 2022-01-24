@@ -28,8 +28,12 @@ export const togSelectPro = (index) => {
   }
 }
 // 编辑商品
-export const editPro = () => {
-
+export const editPro = (index, num) => {
+  return {
+    type: production.EDITPRODUCTION,
+    index,
+    num
+  }
 }
 
 // 清空选择
