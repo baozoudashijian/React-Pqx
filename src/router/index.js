@@ -7,6 +7,7 @@ import home from "@/pages/home/home";
 const production = asyncComponent(() => import("@/pages/production/production"));
 const balance = asyncComponent(() => import("@/pages/balance/balance"));
 const helpcenter = asyncComponent(() => import("@/pages/helpcenter/helpcenter"));
+const record = asyncComponent(() => import("@/pages/record/record"));
 
 export default class RouteConfig extends Component {
   render() {
@@ -17,6 +18,7 @@ export default class RouteConfig extends Component {
           <Route path="/production" component={production} />
           <Route path="/balance" component={balance} />
           <Route path="/helpcenter" component={helpcenter} />
+          <Route path="/record" component={record} />
           <Redirect to="/" />
         </Switch>
       </HashRouter>

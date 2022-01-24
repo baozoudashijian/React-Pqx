@@ -1,0 +1,48 @@
+@import "../../style/func";
+@import "../../style/var";
+
+.record-container {
+  padding-top: px2rem(88px);
+
+  .record-nav-con {
+    height: px2rem(110px);
+    position: relative;
+
+    .record-nav {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+
+      .nav-link {
+        font-size: px2rem(36px);
+        text-align: center;
+        flex: 1;
+        height: px2rem(60px);
+        line-height: px2rem(60px);
+        transition: color 300ms;
+      }
+
+      a:nth-of-type(1), a:nth-of-type(2) {
+        border-right: 1Px solid #ddd;
+      }
+
+      .active {
+        color: $base-color;
+      }
+    }
+
+    .nav-flag-bar {
+      width: px2rem(130px);
+      height: 2PX;
+      border-radius: 1px;
+      background-color: $base-color;
+      position: absolute;
+      bottom: 0;
+      left: 17%;
+      margin-left: px2rem(-65px);
+      transition: left 300ms;
+    }
+  }
+}
