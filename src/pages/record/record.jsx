@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import PublicHeader from '@/components/header/header'
-import {NavLink} from 'react-router-dom'
+import {NavLink, Redirect, Route, Switch} from 'react-router-dom'
 import './record.scss'
+import RecordList from "./components/recordList";
 
 class Record extends Component {
 
@@ -49,15 +50,19 @@ class Record extends Component {
   render() {
     return (
       <main className="record-container">
-        <PublicHeader title="记录"></PublicHeader>
+        <PublicHeader title="记录"/>
         <section className="record-nav-con">
           <nav className="record-nav">
             <NavLink to={`${this.props.match.path}/passed`} className="nav-link">已通过</NavLink>
             <NavLink to={`${this.props.match.path}/audited`} className="nav-link">待审核</NavLink>
             <NavLink to={`${this.props.match.path}/failed`} className="nav-link">未通过</NavLink>
           </nav>
-          <i className="nav-flag-bar" style={{left: this.state.flagBarPos}}></i>
+          <i className="nav-flag-bar" style={{left: this.state.flagBarPos}}/>
         </section>
+        <Switch>
+          <Route path={`${this.props.match.path}/:type`} component={RecordList}/>
+          <Redirect from={`${this.props.match.path}`} to={`${this.props.match.path}/passed`} exact component={RecordList}/>
+        </Switch>
       </main>
     )
   }
